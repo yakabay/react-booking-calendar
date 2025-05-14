@@ -1,5 +1,5 @@
 import { useStore } from "../../../store/useStore";
-import { Slot } from "../Slot/Slot";
+import { TimeSlot } from "../TimeSlot/TimeSlot";
 import "./BookingSlots.scss";
 
 export const BookingSlots = () => {
@@ -25,7 +25,7 @@ export const BookingSlots = () => {
 
       <div className="calendar__slots">
         {timeSlots.map((slot) => (
-          <Slot
+          <TimeSlot
             key={slot.id}
             time={slot.time}
             isAvailable={slot.isAvailable}
