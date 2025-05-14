@@ -18,7 +18,7 @@ interface TimeSlot {
   isSelected: boolean;
 }
 
-interface Store {
+export interface Store {
   appointments: Appointment[];
   timeSlots: TimeSlot[];
   selectedDate: string;
@@ -89,6 +89,13 @@ export const useStore = create<Store>((set, get) => {
           state.appointments.push({
             ...appointment,
             id: Math.random().toString(36).substr(2, 9),
+          });
+
+          state.timeSlots.forEach((slot) => {
+            if (slot.time === appointment.time) {
+              slot.isAvailable = false;
+              slot.isSelected = false;
+            }
           });
         })
       ),
