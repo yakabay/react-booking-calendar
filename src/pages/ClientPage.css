@@ -1,0 +1,31 @@
+.client-page {
+  padding: 2rem;
+}
+
+.client-page__title {
+  margin: 0 0 2rem;
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+}
+
+.client-page__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.client-page__calendar,
+.client-page__form {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .client-page__content {
+    grid-template-columns: 1fr;
+  }
+}
