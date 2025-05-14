@@ -1,10 +1,12 @@
+@import "../styles/variables";
+
 .practitioner-page {
   padding: 2rem;
 
   &__title {
     margin: 0 0 2rem;
     font-size: 2rem;
-    color: #333;
+    color: $color-text;
     text-align: center;
   }
 
@@ -18,15 +20,15 @@
   &__main {
     flex: 1;
     padding: 2rem;
-    background-color: #fff;
+    background-color: $color-background;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px $color-shadow;
     margin-left: 2rem;
   }
 
   &__welcome {
     font-size: 1.1rem;
-    color: #666;
+    color: $color-text-light;
     line-height: 1.6;
   }
 }

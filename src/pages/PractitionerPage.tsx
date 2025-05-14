@@ -1,4 +1,4 @@
-import { AppointmentsSidebar } from "../components/AppointmentsSidebar/AppointmentsSidebar";
+import { AppointmentsSidebar } from "../components/practitioner-page/AppointmentsSidebar/AppointmentsSidebar";
 import "./PractitionerPage.scss";
 
 export const PractitionerPage = () => {

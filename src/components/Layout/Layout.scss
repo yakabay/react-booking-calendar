@@ -1,12 +1,14 @@
+@import "../../styles/variables";
+
 .layout {
   display: flex;
   min-height: 100vh;
 
   &__nav {
     width: 200px;
-    background-color: #f5f5f5;
+    background-color: $color-background-light;
     padding: 2rem;
-    border-right: 1px solid #e0e0e0;
+    border-right: 1px solid $color-border;
   }
 
   &__nav-list {
@@ -22,19 +24,19 @@
   &__nav-link {
     display: block;
     padding: 0.5rem;
-    color: #333;
+    color: $color-text;
     text-decoration: none;
     border-radius: 4px;
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: #e0e0e0;
+      background-color: $color-background-hover;
     }
   }
 
   &__main {
     flex: 1;
     padding: 2rem;
-    background-color: #fff;
+    background-color: $color-background;
   }
 }

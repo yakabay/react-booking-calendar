@@ -1,7 +1,12 @@
+@import "../../../styles/variables";
+
 .slot {
-  padding: 1rem;
-  background-color: #f8f9fa;
-  border: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background-color: $color-background-lighter;
+  border: 1px solid $color-border-light;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -10,23 +15,23 @@
   font-family: inherit;
 
   &:hover:not(:disabled) {
-    background-color: #e9ecef;
+    background-color: $color-background-hover;
   }
 
   &--unavailable {
-    background-color: #f8f9fa;
-    border-color: #dee2e6;
+    background-color: $color-background-lighter;
+    border-color: $color-border-light;
     cursor: not-allowed;
     opacity: 0.7;
   }
 
   &--selected {
-    background-color: #007bff;
-    border-color: #0056b3;
+    background-color: $color-primary;
+    border-color: $color-primary-dark;
     color: white;
 
     &:hover:not(:disabled) {
-      background-color: #0056b3;
+      background-color: $color-primary;
     }
 
     .slot__status {
@@ -36,19 +41,18 @@
 
   &__time {
     display: block;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 500;
-    margin-bottom: 0.5rem;
   }
 
   &__status {
     display: block;
     font-size: 0.875rem;
-    color: #6c757d;
+    color: $color-text-lighter;
   }
 
   &:focus-visible {
-    outline: 2px solid #007bff;
+    outline: 2px solid $color-primary;
     outline-offset: 2px;
   }
 }

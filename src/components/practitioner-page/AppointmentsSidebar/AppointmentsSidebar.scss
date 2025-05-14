@@ -1,8 +1,10 @@
+@import "../../../styles/variables";
+
 .sidebar {
   width: 300px;
   height: 100vh;
-  background-color: #fff;
-  border-right: 1px solid #e0e0e0;
+  background-color: $color-background;
+  border-right: 1px solid $color-border;
   overflow-y: auto;
 
   &__section {
@@ -12,7 +14,7 @@
   &__title {
     margin: 0 0 1rem;
     font-size: 1.25rem;
-    color: #333;
+    color: $color-text;
   }
 
   &__appointments {
@@ -23,12 +25,12 @@
 
   &__appointment {
     padding: 1rem;
-    background-color: #f8f9fa;
+    background-color: $color-background-lighter;
     border-radius: 4px;
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: #e9ecef;
+      background-color: $color-background-hover;
     }
 
     &--past {
@@ -44,17 +46,17 @@
 
     &-name {
       font-weight: 500;
-      color: #333;
+      color: $color-text;
     }
 
     &-time {
       font-size: 0.875rem;
-      color: #6c757d;
+      color: $color-text-lighter;
     }
 
     &-details {
       font-size: 0.875rem;
-      color: #6c757d;
+      color: $color-text-lighter;
     }
 
     &-email,

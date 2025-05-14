@@ -18,7 +18,7 @@ export const Slot = ({ time, isAvailable, isSelected, onClick }: SlotProps) => {
       })}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.05 }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
