@@ -1,4 +1,4 @@
-import { AppointmentsSidebar } from "../components/practitioner-page/AppointmentsSidebar/AppointmentsSidebar";
+import { Appointments } from "../components/practitioner-page/appointments/appointments";
 import "./PractitionerPage.scss";
 
 export const PractitionerPage = () => {
@@ -6,7 +6,7 @@ export const PractitionerPage = () => {
     <div className="practitioner-page">
       <h1 className="practitioner-page__title">Appointments Dashboard</h1>
       <div className="practitioner-page__content">
-        <AppointmentsSidebar />
+        <Appointments />
         <div className="practitioner-page__main">
           <p className="practitioner-page__welcome">
             Welcome to your appointments dashboard. Use the sidebar to view and
