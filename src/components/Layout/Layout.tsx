@@ -1,5 +1,4 @@
 import { Outlet, Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import "./Layout.css";
 
 export const Layout = () => {
@@ -20,14 +19,7 @@ export const Layout = () => {
         </ul>
       </nav>
       <main className="layout__main">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Outlet />
-        </motion.div>
+        <Outlet />
       </main>
     </div>
   );
