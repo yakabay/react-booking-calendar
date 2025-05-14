@@ -18,18 +18,13 @@ interface TimeSlot {
   isSelected: boolean;
 }
 
-interface DateTimeSlots {
-  date: string;
-  slots: TimeSlot[];
-}
-
 interface Store {
   appointments: Appointment[];
-  timeSlots: DateTimeSlots[];
+  timeSlots: TimeSlot[];
   selectedDate: string;
   addAppointment: (appointment: Omit<Appointment, "id">) => void;
   setSelectedDate: (date: string) => void;
-  selectTimeSlot: (date: string, timeId: string) => void;
+  selectTimeSlot: (timeId: string) => void;
 }
 
 const generateTimeSlots = (): TimeSlot[] => {
@@ -45,61 +40,37 @@ const generateTimeSlots = (): TimeSlot[] => {
   return slots;
 };
 
-const generateDateSlots = (
-  startDate: string,
-  days: number
-): DateTimeSlots[] => {
-  const dateSlots: DateTimeSlots[] = [];
-  const start = new Date(startDate);
-
-  for (let i = 0; i < days; i++) {
-    const currentDate = new Date(start);
-    currentDate.setDate(start.getDate() + i);
-    const dateStr = currentDate.toISOString().split("T")[0];
-
-    dateSlots.push({
-      date: dateStr,
-      slots: generateTimeSlots(),
-    });
-  }
-
-  return dateSlots;
-};
-
-export const useStore = create<Store>((set) => ({
+export const useStore = create<Store>((set, get) => ({
   appointments: [],
-  timeSlots: generateDateSlots(new Date().toISOString().split("T")[0], 7),
+  timeSlots: generateTimeSlots(),
   selectedDate: new Date().toISOString().split("T")[0],
   addAppointment: (appointment) =>
     set(
-      produce((state) => {
+      produce((state: Store) => {
         state.appointments.push({
           ...appointment,
           id: Math.random().toString(36).substr(2, 9),
         });
       })
     ),
-  setSelectedDate: (date) => set({ selectedDate: date }),
-  selectTimeSlot: (date, timeId) =>
+  setSelectedDate: (date) =>
     set(
-      produce((state) => {
-        const dateSlot = state.timeSlots.find(
-          (ds: DateTimeSlots) => ds.date === date
-        );
-        if (!dateSlot) return;
-
-        // Deselect any previously selected slot in this date
-        const selectedSlot = dateSlot.slots.find(
-          (slot: TimeSlot) => slot.isSelected
-        );
+      produce((state: Store) => {
+        const selectedSlot = state.timeSlots.find((slot) => slot.isSelected);
         if (selectedSlot) {
           selectedSlot.isSelected = false;
         }
-
-        // Select the new slot
-        const clickedSlot = dateSlot.slots.find(
-          (slot: TimeSlot) => slot.id === timeId
-        );
+        state.selectedDate = date;
+      })
+    ),
+  selectTimeSlot: (timeId: string) =>
+    set(
+      produce((state: Store) => {
+        const selectedSlot = state.timeSlots.find((slot) => slot.isSelected);
+        const clickedSlot = state.timeSlots.find((s) => s.id === timeId);
+        if (selectedSlot) {
+          selectedSlot.isSelected = false;
+        }
         if (clickedSlot) {
           clickedSlot.isSelected = true;
         }

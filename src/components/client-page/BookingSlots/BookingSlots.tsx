@@ -10,9 +10,6 @@ export const BookingSlots = () => {
     setSelectedDate(e.target.value);
   };
 
-  const currentDateSlots =
-    timeSlots.find((ds) => ds.date === selectedDate)?.slots || [];
-
   return (
     <div className="calendar">
       <div className="calendar__header">
@@ -27,13 +24,13 @@ export const BookingSlots = () => {
       </div>
 
       <div className="calendar__slots">
-        {currentDateSlots.map((slot) => (
+        {timeSlots.map((slot) => (
           <Slot
             key={slot.id}
             time={slot.time}
             isAvailable={slot.isAvailable}
             isSelected={slot.isSelected}
-            onClick={() => selectTimeSlot(selectedDate, slot.id)}
+            onClick={() => selectTimeSlot(slot.id)}
           />
         ))}
       </div>
