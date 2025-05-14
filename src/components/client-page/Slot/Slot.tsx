@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import clsx from "clsx";
-import "./Slot.css";
+import "./Slot.scss";
 
 interface SlotProps {
   time: string;

@@ -1,5 +1,5 @@
 import { AppointmentsSidebar } from "../components/AppointmentsSidebar/AppointmentsSidebar";
-import "./PractitionerPage.css";
+import "./PractitionerPage.scss";
 
 export const PractitionerPage = () => {
   return (

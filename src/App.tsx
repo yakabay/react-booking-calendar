@@ -7,7 +7,7 @@ import {
 import { Layout } from "./components/Layout/Layout";
 import { ClientPage } from "./pages/ClientPage";
 import { PractitionerPage } from "./pages/PractitionerPage";
-import "./App.css";
+import "./App.scss";
 
 function App() {
   return (

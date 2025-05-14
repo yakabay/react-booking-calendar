@@ -1,0 +1,65 @@
+.sidebar {
+  width: 300px;
+  height: 100vh;
+  background-color: #fff;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+
+  &__section {
+    padding: 1.5rem;
+  }
+
+  &__title {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    color: #333;
+  }
+
+  &__appointments {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__appointment {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #e9ecef;
+    }
+
+    &--past {
+      opacity: 0.7;
+    }
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    &-name {
+      font-weight: 500;
+      color: #333;
+    }
+
+    &-time {
+      font-size: 0.875rem;
+      color: #6c757d;
+    }
+
+    &-details {
+      font-size: 0.875rem;
+      color: #6c757d;
+    }
+
+    &-email,
+    &-phone {
+      margin: 0.25rem 0;
+    }
+  }
+}

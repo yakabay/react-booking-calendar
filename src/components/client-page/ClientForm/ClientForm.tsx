@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import "./ClientForm.css";
+import "./ClientForm.scss";
 
 interface ClientFormData {
   name: string;

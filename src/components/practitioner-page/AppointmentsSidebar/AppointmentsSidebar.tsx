@@ -1,6 +1,6 @@
 import { useStore } from "../../store/useStore";
 import { motion } from "framer-motion";
-import "./AppointmentsSidebar.css";
+import "./AppointmentsSidebar.scss";
 
 export const AppointmentsSidebar = () => {
   const { appointments } = useStore();
