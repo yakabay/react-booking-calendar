@@ -40,7 +40,6 @@ export const ClientForm = () => {
       transition={{ duration: 0.3 }}
     >
       <InputField
-        id="name"
         label="Name"
         type="text"
         register={register}
@@ -49,7 +48,6 @@ export const ClientForm = () => {
       />
 
       <InputField
-        id="email"
         label="Email"
         type="email"
         register={register}
@@ -58,7 +56,6 @@ export const ClientForm = () => {
       />
 
       <InputField
-        id="phone"
         label="Phone"
         type="tel"
         register={register}
