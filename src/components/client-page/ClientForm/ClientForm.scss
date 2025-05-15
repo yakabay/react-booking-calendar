@@ -10,6 +10,7 @@
 
   &__field {
     margin-bottom: 1.5rem;
+    position: relative;
   }
 
   &__label {
@@ -39,13 +40,15 @@
   }
 
   &__error {
-    display: block;
-    margin-top: 0.5rem;
+    position: absolute;
+    bottom: -1.25rem;
+    left: 0;
     color: $color-error;
     font-size: 0.875rem;
   }
 
   &__submit {
+    margin-top: 0.5rem;
     width: 100%;
     padding: 0.75rem;
     background-color: $color-primary;

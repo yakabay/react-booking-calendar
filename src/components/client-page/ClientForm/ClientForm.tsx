@@ -1,20 +1,19 @@
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
+import { zodResolver } from "@hookform/resolvers/zod";
 import "./ClientForm.scss";
 import { useAppointmentsStore } from "../../../store/useBookingStore";
-
-interface ClientFormData {
-  name: string;
-  email: string;
-  phone: string;
-}
+import { clientFormSchema, type ClientFormData } from "./schema";
+import { InputField } from "../InputField/InputField";
 
 export const ClientForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ClientFormData>();
+  } = useForm<ClientFormData>({
+    resolver: zodResolver(clientFormSchema),
+  });
   const { selectedDate, selectedTime, addAppointment } = useAppointmentsStore();
 
   const onSubmit = (data: ClientFormData) => {
@@ -40,71 +39,32 @@ export const ClientForm = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="client-form__field">
-        <label htmlFor="name" className="client-form__label">
-          Name
-        </label>
-        <input
-          id="name"
-          type="text"
-          className="client-form__input"
-          {...register("name", { required: "Name is required" })}
-          aria-invalid={errors.name ? "true" : "false"}
-        />
-        {errors.name && (
-          <span className="client-form__error" role="alert">
-            {errors.name.message}
-          </span>
-        )}
-      </div>
+      <InputField
+        id="name"
+        label="Name"
+        type="text"
+        register={register}
+        name="name"
+        errors={errors}
+      />
 
-      <div className="client-form__field">
-        <label htmlFor="email" className="client-form__label">
-          Email
-        </label>
-        <input
-          id="email"
-          type="email"
-          className="client-form__input"
-          {...register("email", {
-            required: "Email is required",
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: "Invalid email address",
-            },
-          })}
-          aria-invalid={errors.email ? "true" : "false"}
-        />
-        {errors.email && (
-          <span className="client-form__error" role="alert">
-            {errors.email.message}
-          </span>
-        )}
-      </div>
+      <InputField
+        id="email"
+        label="Email"
+        type="email"
+        register={register}
+        name="email"
+        errors={errors}
+      />
 
-      <div className="client-form__field">
-        <label htmlFor="phone" className="client-form__label">
-          Phone
-        </label>
-        <input
-          id="phone"
-          type="tel"
-          className="client-form__input"
-          {...register("phone", {
-            required: "Phone number is required",
-            pattern: {
-              value: /^[0-9]{10}$/,
-              message: "Please enter a valid 10-digit phone number",
-            },
-          })}
-          aria-invalid={errors.phone ? "true" : "false"}
-        />
-        {errors.phone && (
-          <span className="client-form__error" role="alert">
-            {errors.phone.message}
-          </span>
-        )}
-      </div>
+      <InputField
+        id="phone"
+        label="Phone"
+        type="tel"
+        register={register}
+        name="phone"
+        errors={errors}
+      />
 
       <button
         type="submit"
