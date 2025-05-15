@@ -10,10 +10,14 @@ export const PractitionerPage = () => {
           <Appointments />
         </div>
         <div className="practitioner-page__block">
-          <p className="practitioner-page__welcome">
-            Welcome to your appointments dashboard. Here you can view your
-            upcoming and past appointments.
-          </p>
+          <div>
+            <p className="practitioner-page__welcome">
+              Welcome to your appointments dashboard.
+            </p>
+            <p className="practitioner-page__welcome">
+              Here you can view your upcoming and past appointments.
+            </p>
+          </div>
         </div>
       </div>
     </div>

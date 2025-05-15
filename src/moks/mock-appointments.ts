@@ -30,7 +30,9 @@ export const mockAppointments: Appointment[] = [
     clientName: "Alice Brown",
     clientEmail: "alice@example.com",
     clientPhone: "111-222-3333",
-    date: new Date(Date.now() - 86400000).toISOString().split("T")[0],
+    date: new Date(Date.now() - 60 * 60 * 24 * 1000)
+      .toISOString()
+      .split("T")[0],
     time: "11:00",
   },
   {
@@ -38,7 +40,9 @@ export const mockAppointments: Appointment[] = [
     clientName: "Charlie Davis",
     clientEmail: "charlie@example.com",
     clientPhone: "444-555-6666",
-    date: new Date(Date.now() + 86400000).toISOString().split("T")[0],
+    date: new Date(Date.now() + 60 * 60 * 24 * 1000)
+      .toISOString()
+      .split("T")[0],
     time: "15:00",
   },
 ];

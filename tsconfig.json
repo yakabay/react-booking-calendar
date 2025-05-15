@@ -20,7 +20,7 @@
       "@/*": ["src/*"],
       "@shared/*": ["src/shared/*"],
       "@components/*": ["src/components/*"],
-      "@store/*": ["src/store/*"],
+      "@store/*": ["src/shared/store/*"],
       "@styles/*": ["src/styles/*"]
     }
   },
