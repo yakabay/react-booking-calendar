@@ -1,8 +1,8 @@
 import { useBookingStore } from "../../../store/useBookingStore";
 import { TimeSlot } from "../TimeSlot/TimeSlot";
-import "./BookingSlots.scss";
+import "./BookingCalendar.scss";
 
-export const BookingSlots = () => {
+export const BookingCalendar = () => {
   const { timeSlots, selectedDate, setSelectedDate, selectTimeSlot } =
     useBookingStore();
 

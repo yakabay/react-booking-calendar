@@ -23,7 +23,7 @@ export const TimeSlot = ({
       })}
       initial={{ opacity: 0, y: 10 }}
       animate={{
-        opacity: isAvailable ? 1 : 0.5,
+        opacity: isAvailable ? 1 : 0.3,
         y: 0,
       }}
       transition={{ duration: 0.05 }}
