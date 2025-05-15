@@ -1,4 +1,4 @@
-@import "./styles/resets";
+@use "./styles/resets" as *;
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
