@@ -1,54 +1,77 @@
-# React + TypeScript + Vite
+# React Booking Calendar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A booking calendar application built with React and TypeScript.
 
-Currently, two official plugins are available:
+## 📱 How to Use
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Client Page
 
-## Expanding the ESLint configuration
+- View available time slots in the calendar
+- Book appointments by selecting a date and time
+- Fill in personal details and booking purpose
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Practitioner Page
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- On this page the practitioner is able to view booked appointments
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Technologies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Core
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+- React
+- TypeScript
+- Vite (bundler)
+
+### Styling
+
+- SASS
+- BEM - Block Element Modifier methodology
+- CLSX - Tiny library for dynamic class names
+
+### State & Validation
+
+- Zustand - Simple but robust state management
+- Immer - Very convenient library for state updates
+- React Hook Form - Performant form handling with built-in validation
+- Zod - Schema validation with automatic TypeScript types for the form
+
+### Animations
+
+- Framer Motion
+
+### Testing
+
+- Unit tests - utility functions are covered with Jest tests
+
+### Code quality
+
+- ESLint
+- Prettier
+- Husky - Git hooks that run ESLint and Prettier checks before each commit
+
+## 🚀 Run application
+
+1. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Start development server:
+
+   ```bash
+   npm run dev
+   ```
+
+3. Build for production:
+   ```bash
+   npm run build
+   ```
+
+## 🧪 Testing
+
+Run tests:
+
+```bash
+npm test
 ```
