@@ -2,7 +2,6 @@
   "name": "react-booking-calendar",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -11,7 +10,9 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,scss,css,json}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,scss,css,json}\"",
     "prepare": "husky install",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.15.18",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
@@ -39,9 +41,11 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
     "husky": "^9.0.11",
+    "jest": "^29.7.0",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "sass": "^1.72.0",
+    "ts-jest": "^29.3.3",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.3.5"
