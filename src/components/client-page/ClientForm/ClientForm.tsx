@@ -110,7 +110,7 @@ export const ClientForm = () => {
       </div>
 
       <button type="submit" className="client-form__submit">
-        Submit
+        Book Appointment
       </button>
     </motion.form>
   );

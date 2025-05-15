@@ -2,9 +2,10 @@
 
 .layout {
   display: flex;
-  min-height: 100vh;
-
+  height: 100vh;
+  overflow: hidden;
   &__nav {
+    height: 100%;
     width: 200px;
     background-color: $color-background-light;
     padding: 2rem;
@@ -22,7 +23,8 @@
   }
 
   &__nav-link {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 0.5rem;
     color: $color-text;
     text-decoration: none;
@@ -38,5 +40,6 @@
     flex: 1;
     padding: 2rem;
     background-color: $color-background;
+    overflow: auto;
   }
 }

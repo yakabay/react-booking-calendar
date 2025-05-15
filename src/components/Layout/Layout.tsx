@@ -8,12 +8,12 @@ export const Layout = () => {
         <ul className="layout__nav-list">
           <li className="layout__nav-item">
             <Link to="/client" className="layout__nav-link">
-              Client View
+              Client
             </Link>
           </li>
           <li className="layout__nav-item">
             <Link to="/practitioner" className="layout__nav-link">
-              Practitioner View
+              Practitioner
             </Link>
           </li>
         </ul>

@@ -14,7 +14,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    max-width: 1200px;
     margin: 0 auto;
 
     @media (max-width: 768px) {
@@ -22,8 +21,7 @@
     }
   }
 
-  &__calendar,
-  &__form {
+  &__calendar {
     background-color: $color-background;
     border-radius: 8px;
     box-shadow: 0 2px 4px $color-shadow;
