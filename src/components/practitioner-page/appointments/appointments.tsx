@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 import "./Appointments.scss";
-import { useBookingStore } from "../../../store/useBookingStore";
+import { useAppointmentsStore } from "../../../store/useBookingStore";
+import { getCurrentDate } from "../../../shared/utils";
 
 export const Appointments = () => {
-  const { appointments } = useBookingStore();
+  const { appointments } = useAppointmentsStore();
 
   const upcomingAppointments = appointments.filter(
-    (appointment) => appointment.status === "upcoming"
+    (appointment) => new Date(appointment.date) > new Date(getCurrentDate())
   );
   const pastAppointments = appointments.filter(
-    (appointment) => appointment.status === "past"
+    (appointment) => new Date(appointment.date) < new Date(getCurrentDate())
   );
 
   return (

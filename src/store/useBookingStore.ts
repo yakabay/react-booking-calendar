@@ -1,133 +1,42 @@
 import { create } from "zustand";
 import { produce } from "immer";
+import { getCurrentDate } from "../shared/utils";
+import { mockAppointments } from "../moks/mock-appointments";
+import { Appointment } from "../shared/types";
 
-interface Appointment {
-  id: string;
-  clientName: string;
-  clientEmail: string;
-  clientPhone: string;
-  date: string;
-  time: string;
-  status: "upcoming" | "past";
-}
-
-interface TimeSlot {
-  id: string;
-  time: string;
-  isAvailable: boolean;
-  isSelected: boolean;
-}
-
-export interface Store {
+export interface BookingStore {
   appointments: Appointment[];
-  timeSlots: TimeSlot[];
-  selectedDate: string;
   addAppointment: (appointment: Omit<Appointment, "id">) => void;
+  selectedDate: string;
   setSelectedDate: (date: string) => void;
-  selectTimeSlot: (timeId: string) => void;
+  selectedTime: string | null;
+  setSelectedTime: (time: string | null) => void;
 }
 
-const mockAppointments: Appointment[] = [
-  {
-    id: "1",
-    clientName: "John Doe",
-    clientEmail: "john@example.com",
-    clientPhone: "123-456-7890",
-    date: new Date().toISOString().split("T")[0],
-    time: "10:00",
-    status: "upcoming",
-  },
-  {
-    id: "2",
-    clientName: "Jane Smith",
-    clientEmail: "jane@example.com",
-    clientPhone: "098-765-4321",
-    date: new Date().toISOString().split("T")[0],
-    time: "14:00",
-    status: "upcoming",
-  },
-  {
-    id: "3",
-    clientName: "Bob Wilson",
-    clientEmail: "bob@example.com",
-    clientPhone: "555-555-5555",
-    date: new Date().toISOString().split("T")[0],
-    time: "16:00",
-    status: "upcoming",
-  },
-];
-
-const generateTimeSlots = (
-  date: string,
-  appointments: Appointment[]
-): TimeSlot[] => {
-  const slots: TimeSlot[] = [];
-  for (let hour = 9; hour <= 17; hour++) {
-    const time = `${hour}:00`;
-    const isBooked = appointments.some(
-      (apt) => apt.date === date && apt.time === time
-    );
-    slots.push({
-      id: time,
-      time: time,
-      isAvailable: !isBooked,
-      isSelected: false,
-    });
-  }
-  return slots;
-};
-
-export const useBookingStore = create<Store>((set) => {
-  const initialDate = new Date().toISOString().split("T")[0];
+export const useAppointmentsStore = create<BookingStore>((set) => {
   return {
     appointments: mockAppointments,
-    timeSlots: generateTimeSlots(initialDate, mockAppointments),
-    selectedDate: initialDate,
     addAppointment: (appointment) =>
       set(
-        produce((state: Store) => {
+        produce((state: BookingStore) => {
           state.appointments.push({
             ...appointment,
-            id: Math.random().toString(36).substr(2, 9),
-          });
-
-          state.timeSlots.forEach((slot) => {
-            if (slot.time === appointment.time) {
-              slot.isAvailable = false;
-              slot.isSelected = false;
-            }
+            id: Math.random().toString(36).substring(2, 11),
           });
         })
       ),
-    setSelectedDate: (date) =>
+    selectedDate: getCurrentDate(),
+    setSelectedDate: (date: string) =>
       set(
-        produce((state: Store) => {
-          const selectedSlot = state.timeSlots.find((slot) => slot.isSelected);
-          if (selectedSlot) {
-            selectedSlot.isSelected = false;
-          }
+        produce((state: BookingStore) => {
           state.selectedDate = date;
-
-          // Update time slots availability based on appointments
-          state.timeSlots.forEach((slot) => {
-            const isBooked = state.appointments.some(
-              (apt) => apt.date === date && apt.time === slot.time
-            );
-            slot.isAvailable = !isBooked;
-          });
         })
       ),
-    selectTimeSlot: (timeId: string) =>
+    selectedTime: null,
+    setSelectedTime: (time: string | null) =>
       set(
-        produce((state: Store) => {
-          const selectedSlot = state.timeSlots.find((slot) => slot.isSelected);
-          const clickedSlot = state.timeSlots.find((s) => s.id === timeId);
-          if (selectedSlot) {
-            selectedSlot.isSelected = false;
-          }
-          if (clickedSlot && clickedSlot.isAvailable) {
-            clickedSlot.isSelected = true;
-          }
+        produce((state: BookingStore) => {
+          state.selectedTime = time;
         })
       ),
   };

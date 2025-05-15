@@ -1,13 +1,22 @@
-import { useBookingStore } from "../../../store/useBookingStore";
-import { TimeSlot } from "../TimeSlot/TimeSlot";
+import { useAppointmentsStore } from "../../../store/useBookingStore";
+import { SlotSelect } from "../SlotSelect/SlotSelect";
 import "./BookingCalendar.scss";
+import { generateTimeSlots } from "../../../shared/utils";
 
 export const BookingCalendar = () => {
-  const { timeSlots, selectedDate, setSelectedDate, selectTimeSlot } =
-    useBookingStore();
+  const {
+    appointments,
+    selectedDate,
+    selectedTime,
+    setSelectedDate,
+    setSelectedTime,
+  } = useAppointmentsStore();
+
+  const timeSlots = generateTimeSlots(selectedDate, appointments);
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedDate(e.target.value);
+    setSelectedTime(null);
   };
 
   return (
@@ -23,17 +32,11 @@ export const BookingCalendar = () => {
         />
       </div>
 
-      <div className="calendar__slots">
-        {timeSlots.map((slot) => (
-          <TimeSlot
-            key={slot.id}
-            time={slot.time}
-            isAvailable={slot.isAvailable}
-            isSelected={slot.isSelected}
-            onClick={() => selectTimeSlot(slot.id)}
-          />
-        ))}
-      </div>
+      <SlotSelect
+        timeSlots={timeSlots}
+        selectedTime={selectedTime}
+        onChange={setSelectedTime}
+      />
     </div>
   );
 };

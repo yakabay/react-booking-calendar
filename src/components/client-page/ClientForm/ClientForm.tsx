@@ -1,8 +1,7 @@
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import "./ClientForm.scss";
-import { useBookingStore } from "../../../store/useBookingStore";
-import { selectors } from "../../../store/selectors";
+import { useAppointmentsStore } from "../../../store/useBookingStore";
 
 interface ClientFormData {
   name: string;
@@ -16,8 +15,7 @@ export const ClientForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<ClientFormData>();
-  const { addAppointment, selectedDate } = useBookingStore();
-  const selectedTime = useBookingStore(selectors.selectedTime);
+  const { selectedDate, selectedTime, addAppointment } = useAppointmentsStore();
 
   const onSubmit = (data: ClientFormData) => {
     if (!selectedTime) {
@@ -31,7 +29,6 @@ export const ClientForm = () => {
       clientPhone: data.phone,
       date: selectedDate,
       time: selectedTime,
-      status: "upcoming",
     });
   };
 
