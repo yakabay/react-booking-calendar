@@ -1,10 +1,10 @@
-import { useStore } from "../../../store/useStore";
+import { useBookingStore } from "../../../store/useBookingStore";
 import { TimeSlot } from "../TimeSlot/TimeSlot";
 import "./BookingSlots.scss";
 
 export const BookingSlots = () => {
   const { timeSlots, selectedDate, setSelectedDate, selectTimeSlot } =
-    useStore();
+    useBookingStore();
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedDate(e.target.value);

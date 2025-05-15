@@ -5,8 +5,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import { Layout } from "./layout/Layout/Layout";
-import { ClientPage } from "./pages/ClientPage";
-import { PractitionerPage } from "./pages/PractitionerPage";
+import { ClientPage } from "./pages/ClientPage/ClientPage";
+import { PractitionerPage } from "./pages/PractitionerPage/PractitionerPage";
 
 function App() {
   return (

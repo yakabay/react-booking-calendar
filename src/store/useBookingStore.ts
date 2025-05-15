@@ -77,7 +77,7 @@ const generateTimeSlots = (
   return slots;
 };
 
-export const useStore = create<Store>((set) => {
+export const useBookingStore = create<Store>((set) => {
   const initialDate = new Date().toISOString().split("T")[0];
   return {
     appointments: mockAppointments,

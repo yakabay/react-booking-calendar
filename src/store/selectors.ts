@@ -1,4 +1,4 @@
-import { Store } from "./useStore";
+import { Store } from "./useBookingStore";
 
 interface TimeSlot {
   id: string;

@@ -1,4 +1,4 @@
-import { Appointments } from "../components/practitioner-page/Appointments/appointments";
+import { Appointments } from "../../components/practitioner-page/Appointments/Appointments";
 import "./PractitionerPage.scss";
 
 export const PractitionerPage = () => {

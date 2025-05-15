@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import "./Appointments.scss";
-import { useStore } from "../../../store/useStore";
+import { useBookingStore } from "../../../store/useBookingStore";
 
 export const Appointments = () => {
-  const { appointments } = useStore();
+  const { appointments } = useBookingStore();
 
   const upcomingAppointments = appointments.filter(
     (appointment) => appointment.status === "upcoming"

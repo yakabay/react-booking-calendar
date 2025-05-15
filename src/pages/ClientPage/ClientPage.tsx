@@ -1,5 +1,5 @@
-import { BookingSlots } from "../components/client-page/BookingSlots/BookingSlots";
-import { ClientForm } from "../components/client-page/ClientForm/ClientForm";
+import { BookingSlots } from "../../components/client-page/BookingSlots/BookingSlots";
+import { ClientForm } from "../../components/client-page/ClientForm/ClientForm";
 import "./ClientPage.scss";
 
 export const ClientPage = () => {
