@@ -30,7 +30,7 @@ export const BookingCalendar = () => {
             min={new Date().toISOString().split("T")[0]}
           />
           {timeSlots.every(slot => !slot.isAvailable) && (
-            <p className="calendar__no-slots">No slots available for this day</p>
+            <p className="calendar__no-slots">No slots available. Please try another date.</p>
           )}
         </div>
       </div>
