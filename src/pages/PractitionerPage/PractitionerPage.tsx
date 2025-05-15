@@ -1,4 +1,4 @@
-import { Appointments } from "@components/practitioner-page/Appointments/Appointments";
+import { Bookings } from "@/components/practitioner-page/Bookings/Bookings";
 import "./PractitionerPage.scss";
 
 export const PractitionerPage = () => {
@@ -7,7 +7,7 @@ export const PractitionerPage = () => {
       <h1 className="practitioner-page__title">Appointments Dashboard</h1>
       <div className="practitioner-page__content">
         <div className="practitioner-page__block">
-          <Appointments />
+          <Bookings />
         </div>
         <div className="practitioner-page__block">
           <div>
