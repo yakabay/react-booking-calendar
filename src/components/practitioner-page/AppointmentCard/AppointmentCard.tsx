@@ -23,6 +23,9 @@ export const AppointmentCard = ({
         <span className="appointment__name">{appointment.clientName}</span>
         <span className="appointment__time">{appointment.time}</span>
       </div>
+      <div className="appointment__date">
+        <span>{appointment.date}</span>
+      </div>
       <div className="appointment__details">
         <p className="appointment__email">{appointment.clientEmail}</p>
         <p className="appointment__phone">{appointment.clientPhone}</p>

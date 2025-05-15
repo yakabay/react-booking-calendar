@@ -16,7 +16,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
   }
 
   &__name {
@@ -29,6 +28,14 @@
     color: $color-text-lighter;
   }
 
+  &__date {
+    position: relative;
+    top: -0.3rem;
+    text-align: right;
+    font-size: 0.875rem;
+    color: $color-text-lighter;
+  }
+
   &__details {
     font-size: 0.875rem;
     color: $color-text-lighter;
@@ -36,6 +43,6 @@
 
   &__email,
   &__phone {
-    margin: 0.25rem 0;
+    margin-bottom: 0.2rem;
   }
 }
