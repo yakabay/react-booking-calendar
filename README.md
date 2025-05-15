@@ -14,7 +14,7 @@ A booking calendar application built with React and TypeScript.
 
 - This page allows the practitioner to view all booked appointments
 
-## 🛠️ Technologies
+## Technologies
 
 ### Core
 
