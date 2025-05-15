@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import "./appointments.scss";
+import "./Appointments.scss";
 import { useStore } from "../../../store/useStore";
 
 export const Appointments = () => {

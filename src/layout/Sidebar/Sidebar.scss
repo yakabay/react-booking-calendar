@@ -1,15 +1,14 @@
 @import "../../styles/variables";
 
-.layout {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
+.sidebar {
+  height: 100%;
+  width: 200px;
+  padding: 2rem;
+  background-color: $color-background-light;
+  border-right: 1px solid $color-border;
+
   &__nav {
-    height: 100%;
-    width: 200px;
-    background-color: $color-background-light;
-    padding: 2rem;
-    border-right: 1px solid $color-border;
+    padding: 1rem;
   }
 
   &__nav-list {
@@ -34,12 +33,5 @@
     &:hover {
       background-color: $color-background-hover;
     }
-  }
-
-  &__main {
-    flex: 1;
-    padding: 2rem;
-    background-color: $color-background;
-    overflow: auto;
   }
 }

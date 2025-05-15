@@ -4,7 +4,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { Layout } from "./components/Layout/Layout";
+import { Layout } from "./layout/Layout/Layout";
 import { ClientPage } from "./pages/ClientPage";
 import { PractitionerPage } from "./pages/PractitionerPage";
 
