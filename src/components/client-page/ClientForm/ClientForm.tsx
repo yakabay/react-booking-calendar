@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import { zodResolver } from "@hookform/resolvers/zod";
 import "./ClientForm.scss";
-import { useAppointmentsStore } from "@store/useBookingStore";
+import { useBookingStore, selectors } from "@store/useBookingStore";
 import { clientFormSchema, type ClientFormData } from "./schema";
 import { InputField } from "@components/client-page/InputField/InputField";
 import { useSuccessMessage } from "@shared/hooks/useSuccessMessage";
@@ -18,7 +18,9 @@ export const ClientForm = () => {
   } = useForm<ClientFormData>({
     resolver: zodResolver(clientFormSchema),
   });
-  const { selectedDate, selectedTime, addAppointment } = useAppointmentsStore();
+  const selectedTime = useBookingStore(selectors.selectedTime);
+  const selectedDate = useBookingStore(selectors.selectedDate);
+  const addAppointment = useBookingStore(selectors.addAppointment);
 
   const onSubmit = (data: ClientFormData) => {
     if (!selectedTime) {

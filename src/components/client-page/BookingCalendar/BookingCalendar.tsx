@@ -1,11 +1,14 @@
-import { useAppointmentsStore } from "@store/useBookingStore";
+import { useBookingStore, selectors } from "@store/useBookingStore";
 import { SlotSelect } from "../SlotSelect/SlotSelect";
 import "./BookingCalendar.scss";
 import { generateTimeSlots } from "@shared/utils";
 
 export const BookingCalendar = () => {
-  const { appointments, selectedDate, selectedTime, setSelectedDate, setSelectedTime } =
-    useAppointmentsStore();
+  const appointments = useBookingStore(selectors.appointments);
+  const selectedDate = useBookingStore(selectors.selectedDate);
+  const selectedTime = useBookingStore(selectors.selectedTime);
+  const setSelectedDate = useBookingStore(selectors.setSelectedDate);
+  const setSelectedTime = useBookingStore(selectors.setSelectedTime);
 
   const timeSlots = generateTimeSlots(selectedDate, appointments);
 

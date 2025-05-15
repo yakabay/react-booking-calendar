@@ -13,7 +13,16 @@ export interface BookingStore {
   setSelectedTime: (time: string | null) => void;
 }
 
-export const useAppointmentsStore = create<BookingStore>(set => {
+export const selectors = {
+  appointments: (state: BookingStore) => state.appointments,
+  addAppointment: (state: BookingStore) => state.addAppointment,
+  selectedDate: (state: BookingStore) => state.selectedDate,
+  setSelectedDate: (state: BookingStore) => state.setSelectedDate,
+  selectedTime: (state: BookingStore) => state.selectedTime,
+  setSelectedTime: (state: BookingStore) => state.setSelectedTime,
+} as const;
+
+export const useBookingStore = create<BookingStore>(set => {
   return {
     appointments: mockAppointments,
     addAppointment: newAppointment =>

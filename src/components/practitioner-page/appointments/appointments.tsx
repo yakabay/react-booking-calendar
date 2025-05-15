@@ -1,11 +1,11 @@
 import "./Appointments.scss";
-import { useAppointmentsStore } from "@store/useBookingStore";
+import { useBookingStore, selectors } from "@store/useBookingStore";
 import { AppointmentCard } from "../AppointmentCard/AppointmentCard";
 import { getPastAppointments } from "@shared/utils";
 import { getUpcomingAppointments } from "@shared/utils";
 
 export const Appointments = () => {
-  const { appointments } = useAppointmentsStore();
+  const appointments = useBookingStore(selectors.appointments);
   const upcomingAppointments = getUpcomingAppointments(appointments);
   const pastAppointments = getPastAppointments(appointments);
 
