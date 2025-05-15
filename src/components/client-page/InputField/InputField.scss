@@ -22,11 +22,16 @@
     &:focus {
       outline: none;
       border-color: $color-primary;
-      box-shadow: 0 0 0 2px $color-primary-light;
+      box-shadow: 0 0 0 1px $color-primary-light;
     }
 
     &[aria-invalid="true"] {
       border-color: $color-error;
+      box-shadow: 0 0 0 1px $color-error;
+    }
+
+    &:invalid {
+      box-shadow: none;
     }
   }
 

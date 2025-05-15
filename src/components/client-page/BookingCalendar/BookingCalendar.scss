@@ -2,6 +2,10 @@
 
 .calendar {
   padding: 1.5rem;
+  background-color: $color-background;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px $color-shadow;
+  max-width: 670px;
 
   &__header {
     margin-bottom: 2rem;

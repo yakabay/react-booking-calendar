@@ -10,7 +10,7 @@ export const ClientPage = () => {
         <div className="client-page__calendar">
           <BookingCalendar />
         </div>
-        <div>
+        <div className="client-page__form">
           <ClientForm />
         </div>
       </div>

@@ -12,18 +12,29 @@
 
   &__content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
+  }
 
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
+  &__form {
+    margin: 0 auto;
+  }
+
+  @media (max-width: 1440px) {
+    &__content {
+      grid-template-columns: 1fr 1fr;
     }
   }
 
-  &__calendar {
-    background-color: $color-background;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px $color-shadow;
+  @media (max-width: 1024px) {
+    &__content {
+      grid-template-columns: 1fr;
+    }
+    &__calendar {
+      max-width: 400px;
+      margin: 0 auto;
+    }
   }
 }

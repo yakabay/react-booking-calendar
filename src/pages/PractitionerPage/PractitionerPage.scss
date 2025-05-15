@@ -14,16 +14,17 @@
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
-    min-height: calc(100vh - 200px);
+    gap: 2rem;
   }
 
   &__block {
     flex: 1;
+    display: flex;
+    justify-content: center;
     padding: 2rem;
     background-color: $color-background;
     border-radius: 8px;
     box-shadow: 0 2px 4px $color-shadow;
-    margin-left: 2rem;
   }
 
   &__welcome {
