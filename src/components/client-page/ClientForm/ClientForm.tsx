@@ -106,7 +106,11 @@ export const ClientForm = () => {
         )}
       </div>
 
-      <button type="submit" className="client-form__submit">
+      <button
+        type="submit"
+        className="client-form__submit"
+        disabled={!selectedTime}
+      >
         Book Appointment
       </button>
     </motion.form>

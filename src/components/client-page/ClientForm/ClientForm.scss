@@ -53,16 +53,21 @@
     border: none;
     border-radius: 4px;
     font-size: 1rem;
-    cursor: pointer;
     transition: background-color 0.2s;
 
-    &:hover {
-      background-color: $color-primary-dark;
+    &[disabled] {
+      opacity: 0.5;
     }
 
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px $color-primary-light;
+    &:not([disabled]) {
+      cursor: pointer;
+      &:hover {
+        background-color: $color-primary-dark;
+      }
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px $color-primary-light;
+      }
     }
   }
 }

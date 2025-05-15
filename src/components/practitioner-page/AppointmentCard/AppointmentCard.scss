@@ -1,0 +1,41 @@
+@import "../../../styles/variables";
+
+.appointment {
+  padding: 1rem;
+  background-color: $color-background-lighter;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+
+  &:not(&--past) {
+    &:hover {
+      background-color: $color-background-hover;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  &__name {
+    font-weight: 500;
+    color: $color-text;
+  }
+
+  &__time {
+    font-size: 0.875rem;
+    color: $color-text-lighter;
+  }
+
+  &__details {
+    font-size: 0.875rem;
+    color: $color-text-lighter;
+  }
+
+  &__email,
+  &__phone {
+    margin: 0.25rem 0;
+  }
+}

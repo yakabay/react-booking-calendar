@@ -1,14 +1,9 @@
+import { TimeSlot as TimeSlotInterface } from "../../../shared/types";
 import { TimeSlot } from "../TimeSlot/TimeSlot";
 import "./SlotSelect.scss";
 
-interface TimeSlot {
-  id: string;
-  time: string;
-  isAvailable: boolean;
-}
-
 interface SlotSelectProps {
-  timeSlots: TimeSlot[];
+  timeSlots: TimeSlotInterface[];
   selectedTime: string | null;
   onChange: (time: string) => void;
 }
@@ -22,7 +17,7 @@ export const SlotSelect = ({
     <div className="slot-select">
       {timeSlots.map((slot) => (
         <TimeSlot
-          key={slot.id}
+          key={slot.time}
           time={slot.time}
           isAvailable={slot.isAvailable}
           isSelected={selectedTime === slot.time}

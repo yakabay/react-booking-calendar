@@ -23,6 +23,7 @@ export const useAppointmentsStore = create<BookingStore>((set) => {
             ...appointment,
             id: Math.random().toString(36).substring(2, 11),
           });
+          state.selectedTime = null;
         })
       ),
     selectedDate: getCurrentDate(),
