@@ -26,6 +26,10 @@
     box-shadow: 0px 2px 4px 1px $color-shadow;
   }
 
+  &__welcome-container {
+    margin-bottom: 0.7rem;
+  }
+
   &__welcome {
     font-size: 1.1rem;
     color: $color-text-light;
