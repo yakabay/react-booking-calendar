@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Appointment } from "../../../shared/types";
+import { Appointment } from "@shared/types";
 import "./AppointmentCard.scss";
 
 interface AppointmentCardProps {

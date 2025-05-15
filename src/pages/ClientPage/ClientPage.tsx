@@ -1,5 +1,5 @@
-import { BookingCalendar } from "../../components/client-page/BookingCalendar/BookingCalendar";
-import { ClientForm } from "../../components/client-page/ClientForm/ClientForm";
+import { BookingCalendar } from "@components/client-page/BookingCalendar/BookingCalendar";
+import { ClientForm } from "@components/client-page/ClientForm/ClientForm";
 import "./ClientPage.scss";
 
 export const ClientPage = () => {

@@ -2,11 +2,11 @@ import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import { zodResolver } from "@hookform/resolvers/zod";
 import "./ClientForm.scss";
-import { useAppointmentsStore } from "../../../store/useBookingStore";
+import { useAppointmentsStore } from "@store/useBookingStore";
 import { clientFormSchema, type ClientFormData } from "./schema";
-import { InputField } from "../InputField/InputField";
-import { useSuccessMessage } from "../../../shared/hooks/useSuccessMessage";
-import { SuccessMessage } from "../../../shared/components/SuccessMessage/SuccessMessage";
+import { InputField } from "@components/client-page/InputField/InputField";
+import { useSuccessMessage } from "@shared/hooks/useSuccessMessage";
+import { SuccessMessage } from "@shared/components/SuccessMessage/SuccessMessage";
 
 export const ClientForm = () => {
   const { isVisible, message, showSuccess } = useSuccessMessage();

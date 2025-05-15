@@ -1,4 +1,4 @@
-import { TimeSlot as TimeSlotInterface } from "../../../shared/types";
+import { TimeSlot as TimeSlotInterface } from "@shared/types";
 import { TimeSlot } from "../TimeSlot/TimeSlot";
 import "./SlotSelect.scss";
 

@@ -1,7 +1,7 @@
-import { useAppointmentsStore } from "../../../store/useBookingStore";
+import { useAppointmentsStore } from "@store/useBookingStore";
 import { SlotSelect } from "../SlotSelect/SlotSelect";
 import "./BookingCalendar.scss";
-import { generateTimeSlots } from "../../../shared/utils";
+import { generateTimeSlots } from "@shared/utils";
 
 export const BookingCalendar = () => {
   const {

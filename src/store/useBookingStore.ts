@@ -1,8 +1,8 @@
 import { create } from "zustand";
 import { produce } from "immer";
-import { getCurrentDate } from "../shared/utils";
-import { mockAppointments } from "../moks/mock-appointments";
-import { Appointment } from "../shared/types";
+import { getCurrentDate } from "@shared/utils";
+import { mockAppointments } from "@/moks/mock-appointments";
+import { Appointment } from "@shared/types";
 
 export interface BookingStore {
   appointments: Appointment[];

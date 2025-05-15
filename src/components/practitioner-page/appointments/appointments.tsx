@@ -1,8 +1,8 @@
 import "./Appointments.scss";
-import { useAppointmentsStore } from "../../../store/useBookingStore";
+import { useAppointmentsStore } from "@store/useBookingStore";
 import { AppointmentCard } from "../AppointmentCard/AppointmentCard";
-import { getPastAppointments } from "../../../shared/utils";
-import { getUpcomingAppointments } from "../../../shared/utils";
+import { getPastAppointments } from "@shared/utils";
+import { getUpcomingAppointments } from "@shared/utils";
 
 export const Appointments = () => {
   const { appointments } = useAppointmentsStore();
