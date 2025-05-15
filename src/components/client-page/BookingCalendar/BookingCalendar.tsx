@@ -4,13 +4,8 @@ import "./BookingCalendar.scss";
 import { generateTimeSlots } from "@shared/utils";
 
 export const BookingCalendar = () => {
-  const {
-    appointments,
-    selectedDate,
-    selectedTime,
-    setSelectedDate,
-    setSelectedTime,
-  } = useAppointmentsStore();
+  const { appointments, selectedDate, selectedTime, setSelectedDate, setSelectedTime } =
+    useAppointmentsStore();
 
   const timeSlots = generateTimeSlots(selectedDate, appointments);
 
@@ -23,20 +18,21 @@ export const BookingCalendar = () => {
     <div className="calendar">
       <div className="calendar__header">
         <h2 className="calendar__title">Available Time Slots</h2>
-        <input
-          type="date"
-          className="calendar__date-input"
-          value={selectedDate}
-          onChange={handleDateChange}
-          min={new Date().toISOString().split("T")[0]}
-        />
+        <div className="calendar__date-container">
+          <input
+            type="date"
+            className="calendar__date-input"
+            value={selectedDate}
+            onChange={handleDateChange}
+            min={new Date().toISOString().split("T")[0]}
+          />
+          {timeSlots.every(slot => !slot.isAvailable) && (
+            <p className="calendar__no-slots">No slots available for this day</p>
+          )}
+        </div>
       </div>
 
-      <SlotSelect
-        timeSlots={timeSlots}
-        selectedTime={selectedTime}
-        onChange={setSelectedTime}
-      />
+      <SlotSelect timeSlots={timeSlots} selectedTime={selectedTime} onChange={setSelectedTime} />
     </div>
   );
 };

@@ -11,9 +11,7 @@ export const PractitionerPage = () => {
         </div>
         <div className="practitioner-page__block">
           <div>
-            <p className="practitioner-page__welcome">
-              Welcome to your appointments dashboard.
-            </p>
+            <p className="practitioner-page__welcome">Welcome to your appointments dashboard.</p>
             <p className="practitioner-page__welcome">
               Here you can view your upcoming and past appointments.
             </p>

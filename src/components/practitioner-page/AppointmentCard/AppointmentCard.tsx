@@ -7,10 +7,7 @@ interface AppointmentCardProps {
   isPast?: boolean;
 }
 
-export const AppointmentCard = ({
-  appointment,
-  isPast = false,
-}: AppointmentCardProps) => {
+export const AppointmentCard = ({ appointment, isPast = false }: AppointmentCardProps) => {
   return (
     <motion.div
       key={appointment.id}

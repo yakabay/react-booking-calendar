@@ -22,9 +22,26 @@
     font-size: 1rem;
   }
 
+  &__date-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__no-slots {
+    color: $color-text-light;
+  }
+
   &__slots {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
+  }
+
+  @media (max-width: 1024px) {
+    &__date-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 }

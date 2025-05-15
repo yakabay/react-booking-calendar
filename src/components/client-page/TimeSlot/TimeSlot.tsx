@@ -9,12 +9,7 @@ interface TimeSlotProps {
   onClick: () => void;
 }
 
-export const TimeSlot = ({
-  time,
-  isAvailable,
-  isSelected,
-  onClick,
-}: TimeSlotProps) => {
+export const TimeSlot = ({ time, isAvailable, isSelected, onClick }: TimeSlotProps) => {
   return (
     <motion.button
       className={clsx("time-slot", {
@@ -30,14 +25,10 @@ export const TimeSlot = ({
       onClick={onClick}
       disabled={!isAvailable}
       aria-pressed={isSelected}
-      aria-label={`${time} time slot, ${
-        isAvailable ? "available" : "unavailable"
-      }`}
+      aria-label={`${time} time slot, ${isAvailable ? "available" : "unavailable"}`}
     >
       <span className="time-slot__time">{time}</span>
-      <span className="time-slot__status">
-        {isAvailable ? "Available" : "Unavailable"}
-      </span>
+      <span className="time-slot__status">{isAvailable ? "Available" : "Unavailable"}</span>
     </motion.button>
   );
 };

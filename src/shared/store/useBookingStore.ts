@@ -13,31 +13,31 @@ export interface BookingStore {
   setSelectedTime: (time: string | null) => void;
 }
 
-export const useAppointmentsStore = create<BookingStore>((set) => {
+export const useAppointmentsStore = create<BookingStore>(set => {
   return {
     appointments: mockAppointments,
-    addAppointment: (appointment) =>
+    addAppointment: newAppointment =>
       set(
         produce((state: BookingStore) => {
           state.appointments.push({
-            ...appointment,
+            ...newAppointment,
             id: Math.random().toString(36).substring(2, 11),
           });
           state.selectedTime = null;
         })
       ),
     selectedDate: getCurrentDate(),
-    setSelectedDate: (date: string) =>
+    setSelectedDate: newDate =>
       set(
         produce((state: BookingStore) => {
-          state.selectedDate = date;
+          state.selectedDate = newDate;
         })
       ),
     selectedTime: null,
-    setSelectedTime: (time: string | null) =>
+    setSelectedTime: newTime =>
       set(
         produce((state: BookingStore) => {
-          state.selectedTime = time;
+          state.selectedTime = newTime;
         })
       ),
   };

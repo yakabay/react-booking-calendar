@@ -1,16 +1,11 @@
 import { Appointment, TimeSlot } from "./types";
 
-export const generateTimeSlots = (
-  currentDate: string,
-  appointments: Appointment[]
-): TimeSlot[] => {
+export const generateTimeSlots = (currentDate: string, appointments: Appointment[]): TimeSlot[] => {
   const slots: TimeSlot[] = [];
   for (let hour = 9; hour <= 17; hour++) {
     const time = `${hour}:00`;
     const isPast = getAppointmentTime(currentDate, time) < new Date();
-    const isBooked = appointments.some(
-      (apt) => apt.date === currentDate && apt.time === time
-    );
+    const isBooked = appointments.some(apt => apt.date === currentDate && apt.time === time);
     slots.push({
       time: time,
       isAvailable: !isBooked && !isPast,
@@ -30,14 +25,12 @@ export const getAppointmentTime = (date: string, time: string) => {
 
 export const getPastAppointments = (appointments: Appointment[]) => {
   return appointments.filter(
-    (appointment) =>
-      getAppointmentTime(appointment.date, appointment.time) < new Date()
+    appointment => getAppointmentTime(appointment.date, appointment.time) < new Date()
   );
 };
 
 export const getUpcomingAppointments = (appointments: Appointment[]) => {
   return appointments.filter(
-    (appointment) =>
-      getAppointmentTime(appointment.date, appointment.time) > new Date()
+    appointment => getAppointmentTime(appointment.date, appointment.time) > new Date()
   );
 };

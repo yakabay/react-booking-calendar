@@ -14,7 +14,7 @@ export const Appointments = () => {
       <div className="appointments__section">
         <h2 className="appointments__title">Upcoming Appointments</h2>
         <div className="appointments__list">
-          {upcomingAppointments.map((appointment) => (
+          {upcomingAppointments.map(appointment => (
             <AppointmentCard key={appointment.id} appointment={appointment} />
           ))}
         </div>
@@ -23,12 +23,8 @@ export const Appointments = () => {
       <div className="appointments__section">
         <h2 className="appointments__title">Past Appointments</h2>
         <div className="appointments__list">
-          {pastAppointments.map((appointment) => (
-            <AppointmentCard
-              key={appointment.id}
-              appointment={appointment}
-              isPast
-            />
+          {pastAppointments.map(appointment => (
+            <AppointmentCard key={appointment.id} appointment={appointment} isPast />
           ))}
         </div>
       </div>

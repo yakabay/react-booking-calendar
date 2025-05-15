@@ -8,14 +8,10 @@ interface SlotSelectProps {
   onChange: (time: string) => void;
 }
 
-export const SlotSelect = ({
-  timeSlots,
-  selectedTime,
-  onChange,
-}: SlotSelectProps) => {
+export const SlotSelect = ({ timeSlots, selectedTime, onChange }: SlotSelectProps) => {
   return (
     <div className="slot-select">
-      {timeSlots.map((slot) => (
+      {timeSlots.map(slot => (
         <TimeSlot
           key={slot.time}
           time={slot.time}

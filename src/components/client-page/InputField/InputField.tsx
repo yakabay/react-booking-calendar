@@ -1,9 +1,4 @@
-import {
-  UseFormRegister,
-  FieldErrors,
-  FieldValues,
-  Path,
-} from "react-hook-form";
+import { UseFormRegister, FieldErrors, FieldValues, Path } from "react-hook-form";
 import "./InputField.scss";
 
 interface InputFieldProps<T extends FieldValues> {

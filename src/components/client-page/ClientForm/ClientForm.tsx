@@ -48,35 +48,13 @@ export const ClientForm = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <InputField
-          label="Name"
-          type="text"
-          register={register}
-          name="name"
-          errors={errors}
-        />
+        <InputField label="Name" type="text" register={register} name="name" errors={errors} />
 
-        <InputField
-          label="Email"
-          type="email"
-          register={register}
-          name="email"
-          errors={errors}
-        />
+        <InputField label="Email" type="email" register={register} name="email" errors={errors} />
 
-        <InputField
-          label="Phone"
-          type="tel"
-          register={register}
-          name="phone"
-          errors={errors}
-        />
+        <InputField label="Phone" type="tel" register={register} name="phone" errors={errors} />
 
-        <button
-          type="submit"
-          className="client-form__submit"
-          disabled={!selectedTime}
-        >
+        <button type="submit" className="client-form__submit" disabled={!selectedTime}>
           Book Appointment
         </button>
       </motion.form>
