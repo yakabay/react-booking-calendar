@@ -31,5 +31,9 @@
     &:hover {
       background-color: $color-background-hover;
     }
+
+    &--active {
+      font-weight: bold;
+    }
   }
 }
