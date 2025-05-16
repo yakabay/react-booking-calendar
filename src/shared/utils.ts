@@ -23,14 +23,26 @@ export const getAppointmentTime = (date: string, time: string) => {
   return dateTime;
 };
 
+export const sortAppointments = (appointments: Appointment[]) => {
+  return [...appointments].sort((a, b) => {
+    const timeA = getAppointmentTime(a.date, a.time);
+    const timeB = getAppointmentTime(b.date, b.time);
+    return timeA.getTime() - timeB.getTime();
+  });
+};
+
 export const getPastAppointments = (appointments: Appointment[]) => {
-  return appointments.filter(
-    appointment => getAppointmentTime(appointment.date, appointment.time) < new Date()
+  return sortAppointments(
+    appointments.filter(
+      appointment => getAppointmentTime(appointment.date, appointment.time) < new Date()
+    )
   );
 };
 
 export const getUpcomingAppointments = (appointments: Appointment[]) => {
-  return appointments.filter(
-    appointment => getAppointmentTime(appointment.date, appointment.time) > new Date()
+  return sortAppointments(
+    appointments.filter(
+      appointment => getAppointmentTime(appointment.date, appointment.time) > new Date()
+    )
   );
 };

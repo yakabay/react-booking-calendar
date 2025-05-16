@@ -4,6 +4,7 @@ import {
   getAppointmentTime,
   getPastAppointments,
   getUpcomingAppointments,
+  sortAppointments,
 } from "../utils";
 import { Appointment } from "../types";
 
@@ -60,8 +61,35 @@ describe("Utils", () => {
     });
   });
 
+  describe("sortAppointments", () => {
+    it("should sort appointments chronologically", () => {
+      const appointments: Appointment[] = [
+        {
+          id: "2",
+          clientName: "Later",
+          clientEmail: "later@test.com",
+          clientPhone: "1234567890",
+          date: "2024-03-22",
+          time: "14:00",
+        },
+        {
+          id: "1",
+          clientName: "Earlier",
+          clientEmail: "earlier@test.com",
+          clientPhone: "0987654321",
+          date: "2024-03-22",
+          time: "10:00",
+        },
+      ];
+
+      const sorted = sortAppointments(appointments);
+      expect(sorted[0].time).toBe("10:00");
+      expect(sorted[1].time).toBe("14:00");
+    });
+  });
+
   describe("getPastAppointments", () => {
-    it("should filter out future appointments", () => {
+    it("should filter out future appointments and sort chronologically", () => {
       const now = new Date();
       const pastDate = new Date(now);
       pastDate.setDate(now.getDate() - 1);
@@ -70,31 +98,40 @@ describe("Utils", () => {
 
       const appointments: Appointment[] = [
         {
-          id: "1",
-          clientName: "Past",
-          clientEmail: "past@test.com",
+          id: "2",
+          clientName: "Later Past",
+          clientEmail: "later@test.com",
           clientPhone: "1234567890",
+          date: pastDate.toISOString().split("T")[0],
+          time: "14:00",
+        },
+        {
+          id: "1",
+          clientName: "Earlier Past",
+          clientEmail: "earlier@test.com",
+          clientPhone: "0987654321",
           date: pastDate.toISOString().split("T")[0],
           time: "10:00",
         },
         {
-          id: "2",
+          id: "3",
           clientName: "Future",
           clientEmail: "future@test.com",
-          clientPhone: "0987654321",
+          clientPhone: "5555555555",
           date: futureDate.toISOString().split("T")[0],
           time: "10:00",
         },
       ];
 
       const past = getPastAppointments(appointments);
-      expect(past).toHaveLength(1);
-      expect(past[0].clientName).toBe("Past");
+      expect(past).toHaveLength(2);
+      expect(past[0].time).toBe("10:00");
+      expect(past[1].time).toBe("14:00");
     });
   });
 
   describe("getUpcomingAppointments", () => {
-    it("should filter out past appointments", () => {
+    it("should filter out past appointments and sort chronologically", () => {
       const now = new Date();
       const pastDate = new Date(now);
       pastDate.setDate(now.getDate() - 1);
@@ -103,26 +140,35 @@ describe("Utils", () => {
 
       const appointments: Appointment[] = [
         {
-          id: "1",
-          clientName: "Past",
-          clientEmail: "past@test.com",
+          id: "2",
+          clientName: "Later Future",
+          clientEmail: "later@test.com",
           clientPhone: "1234567890",
-          date: pastDate.toISOString().split("T")[0],
+          date: futureDate.toISOString().split("T")[0],
+          time: "14:00",
+        },
+        {
+          id: "1",
+          clientName: "Earlier Future",
+          clientEmail: "earlier@test.com",
+          clientPhone: "0987654321",
+          date: futureDate.toISOString().split("T")[0],
           time: "10:00",
         },
         {
-          id: "2",
-          clientName: "Future",
-          clientEmail: "future@test.com",
-          clientPhone: "0987654321",
-          date: futureDate.toISOString().split("T")[0],
+          id: "3",
+          clientName: "Past",
+          clientEmail: "past@test.com",
+          clientPhone: "5555555555",
+          date: pastDate.toISOString().split("T")[0],
           time: "10:00",
         },
       ];
 
       const upcoming = getUpcomingAppointments(appointments);
-      expect(upcoming).toHaveLength(1);
-      expect(upcoming[0].clientName).toBe("Future");
+      expect(upcoming).toHaveLength(2);
+      expect(upcoming[0].time).toBe("10:00");
+      expect(upcoming[1].time).toBe("14:00");
     });
   });
 });
