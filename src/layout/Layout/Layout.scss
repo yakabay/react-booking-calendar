@@ -13,4 +13,15 @@
     background-color: $color-background;
     overflow: auto;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    &__sidebar {
+      height: auto;
+    }
+    &__main {
+      padding: 1rem;
+    }
+  }
 }
