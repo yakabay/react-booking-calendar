@@ -1,6 +1,4 @@
 .practitioner-page {
-  padding: 2rem;
-
   &__title {
     margin: 0 0 2rem;
     font-size: 2rem;
@@ -37,13 +35,23 @@
   }
 
   @media (max-width: 768px) {
+    &__title {
+      font-size: 1.7rem;
+      margin-bottom: 1.5rem;
+    }
     &__content {
       flex-direction: column-reverse;
       align-items: center;
     }
-
     &__block {
       max-width: 364px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__block {
+      max-width: initial;
+      width: 100%;
     }
   }
 }

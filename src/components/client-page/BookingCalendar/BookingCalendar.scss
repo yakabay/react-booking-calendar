@@ -46,4 +46,14 @@
       align-items: flex-start;
     }
   }
+
+  @media (max-width: 768px) {
+    &__header {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    min-width: initial;
+  }
 }
