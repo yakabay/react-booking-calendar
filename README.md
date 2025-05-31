@@ -35,7 +35,6 @@ A booking calendar application built with React and TypeScript.
 ### State & Validation
 
 - **Zustand** - Simple but robust state management
-- **Immer** - Very convenient library for state updates
 - **React Hook Form** - Performant form handling with built-in validation
 - **Zod** - Schema validation with automatic TypeScript types for the form
 
