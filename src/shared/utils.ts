@@ -19,7 +19,7 @@ export const getCurrentDate = () => new Date().toISOString().split("T")[0];
 export const getAppointmentTime = (date: string, time: string) => {
   const [hours] = time.split(":");
   const dateTime = new Date(date);
-  dateTime.setHours(parseInt(hours), 0, 0, 0);
+  dateTime.setHours(Number(hours));
   return dateTime;
 };
 
